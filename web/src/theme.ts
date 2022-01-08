@@ -1,14 +1,29 @@
-import { createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
+import { extendTheme } from '@chakra-ui/react'
 
-// A custom theme for this app
-const theme = createTheme({
-    typography: {
-        fontFamily: [
-          'Noto Sans Thai',
-          'sans-serif'
-        ].join(','),
+const primaryColor = '#159bd8';
+
+const theme = extendTheme({
+  fonts: {
+    heading: 'Noto Sans Thai',
+    body: 'Noto Sans Thai',
+  },
+  styles: {
+    global: {
+      body:{
+        bgColor: '#EFFBFF',
       },
-});
+      h1: {
+        color: primaryColor,
+      },
+      a: {
+        color: primaryColor,
+        _hover: {
+          textDecoration: 'underline',
+        },
+      },
+    },
+  },
 
-export default theme;
+})
+
+export default theme

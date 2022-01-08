@@ -1,31 +1,32 @@
-import * as React from 'react';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
+import * as React from "react"
+import {
+  ChakraProvider,
+  Box,
+  Text,
+  Link,
+  VStack,
+  Code,
+  Grid,
+  HStack,
+  Container,
+  Heading,
+} from "@chakra-ui/react"
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}.
-    </Typography>
-  );
-}
+import theme from "./theme"
 
-export default function App() {
-  return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App example with TypeScript ทดสอบ
-        </Typography>
+export const App = () => (
+  <ChakraProvider theme={theme}>
+    <Container maxWidth={{lg:'80%'}}>
+      <VStack mt='5rem'>
+        <Heading
+          as='h1'
+          size='3xl'
+          fontWeight='normal'
+        >
+           เที่ยวไหนดี 
+        </Heading>
 
-        <Copyright />
-      </Box>
+      </VStack>
     </Container>
-  );
-}
+  </ChakraProvider>
+)
