@@ -1,12 +1,12 @@
 import React from 'react'; 
 
-interface SearchBoxProps { 
+interface DetailsPageProps { 
 
 }
 
-const SearchBox:React.FunctionComponent<SearchBoxProps> = () => (
+const DetailsPage:React.FunctionComponent<DetailsPageProps> = () => (
     <>
-        Search Box !
+        Details Page !
     </>
 )
-export default SearchBox
+export default DetailsPage
