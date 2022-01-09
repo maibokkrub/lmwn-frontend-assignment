@@ -12,6 +12,7 @@ const SearchItemImages:React.FunctionComponent<SearchItemImgProps> = ({key, src,
         boxSize='90px'
         key={['search-item-img', key].join('-')}
         src={src}
+        alt={alt}
         borderRadius='2xl'
     />
 )

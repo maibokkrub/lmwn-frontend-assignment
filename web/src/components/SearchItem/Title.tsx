@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { Heading, Link, Text } from '@chakra-ui/react';
+import { Heading, Link } from '@chakra-ui/react';
 
 interface SearchItemTitleProps { 
     text: string;

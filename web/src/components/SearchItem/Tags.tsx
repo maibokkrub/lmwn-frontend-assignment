@@ -6,10 +6,8 @@ interface SearchItemTagsProps {
 }
 
 const SearchItemTags:React.FunctionComponent<SearchItemTagsProps> = ({text}) => (
-    <Box>
-        <Link to='#' textDecor='underline'>
-            {text}
-        </Link>
-    </Box>
+    <Link to='#' textDecor='underline'>
+        {text}
+    </Link>
 )
 export default SearchItemTags
