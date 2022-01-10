@@ -6,13 +6,12 @@ import SearchItemDescription from './Description';
 import SearchItemTags from './Tags';
 import SearchItemImages from './Images';
 
-import { __mockData } from './mockdata'
+import { SearchItemModel } from '../../model/SearchItemModel';
 interface SearchItemProps { 
-    
+    item: SearchItemModel;
 }
 
-const SearchItem:React.FunctionComponent<SearchItemProps> = () => {
-    const item = __mockData;
+const SearchItem:React.FunctionComponent<SearchItemProps> = ({item}) => {
 
     return (
     <Flex w={{ sm:'100%', md:'110%', lg:'120%'}} bg='blackAlpha.50' borderRadius='xl' py='1rem' px='1rem'>
