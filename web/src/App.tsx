@@ -21,7 +21,7 @@ const DetailsPage = React.lazy(()=>import('./pages/DetailsPage'))
 export const App = () => (
   <ChakraProvider theme={theme}>
     <Container maxWidth={{lg:'80%'}}>
-      <VStack mt='5rem'>
+      <VStack py='5rem'>
         <Heading as='h1' size='3xl' mb='2rem' fontWeight='normal'> 
           <Link to ="/"> เที่ยวไหนดี </Link> 
         </Heading>

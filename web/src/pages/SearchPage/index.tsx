@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'; 
 import {useParams, useNavigate} from 'react-router-dom'; 
 import { MdSearch } from "react-icons/md"
-import { Flex, Input, Spinner, VStack } from '@chakra-ui/react';
+import { Flex, Input, Spinner, VStack, Text } from '@chakra-ui/react';
 
 import PrimaryButton from '../../components/StyledComponents/PrimaryButton';
 import SearchItem from '../../components/SearchItem';
@@ -36,7 +36,7 @@ const SearchPage:React.FunctionComponent<SearchPageProps> = () => {
             setUserInput(query);
             fetchSearchByKeyword(query, dataSetter);
         }
-    }, [query, fetchSearchByKeyword])
+    }, [query])
     
     return (
     <>
@@ -67,10 +67,14 @@ const SearchPage:React.FunctionComponent<SearchPageProps> = () => {
                     <Spinner size='lg'/>
             }
             {
-                data?.length && data.map((place:SearchItemModel) =>(
-                    <SearchItem item={place} />
-                )) ||
-                <> No results found :( </> 
+                data?.length && (
+                    data.map((place:SearchItemModel) => (
+                        <SearchItem item={place} />
+                    )) ||
+                        <Text textAlign='center'> 
+                            Unfortunately, there is no paradise like that 😔 
+                        </Text> 
+                    )
             }
             </VStack>
         </Flex>
