@@ -1,10 +1,26 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 import grequests
 import json
 
 API_URL = 'http://127.0.0.1:9000/trips'
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 def getResource(field:str, keyword:str, operation:str='like'):  
     url = API_URL + f'?{field}_{operation}={keyword}'
@@ -36,10 +52,10 @@ async def trips(keyword:str = ''):
     except Exception as e:
         #TODO: Implement centralized error logger
         return {"error": e}
-    return {"result": result}
+    return result
 
 @app.get("/api/tags")
 async def tags(keyword:str = ''):
-    raw_results = grequests.map(getResource( 'tags', keyword))
-    result = raw_results.content
-    return {"result": result}
+    raw_results = grequests.map([getResource( 'tags', keyword)])
+    result = json.loads(raw_results[0].content)
+    return result
